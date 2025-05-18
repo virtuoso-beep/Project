@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f3e8ff;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+h2 {
+  text-align: center;
+  padding: 20px;
+  color: #5a2585;
+  font-size: 2rem;
+}
+
+.schedule-table-container {
+  max-width: 100%;
+  margin: 0 auto 30px auto;
+  padding: 10px;
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.1);
+  transition: background 0.3s;
+}
+
+table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  transition: background 0.3s;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+th {
+  background-color: #9438d1;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+td.available {
+  background-color: #cde7c4;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Dark mode */
+.dark-toggle {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background-color: #9438d1;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.dark-toggle:hover {
+  background-color: #7b2bb9;
+  transform: scale(1.1);
+}
+
+.dark-mode {
+  background-color: #1a1a2e;
+  color: #eee;
+}
+
+.dark-mode .schedule-table-container {
+  background-color: #2c2c54;
+}
+
+.dark-mode table {
+  background-color: #2c2c54;
+  color: #eee;
+}
+
+.dark-mode th {
+  background-color: #3d2c8d;
+}
+
+.dark-mode td {
+  border-color: #555;
+}
+
+.dark-mode td.available {
+  background-color: #47624b;
+}
+
+/* Responsive design */ /* ... existing styles (unchanged above 768px) ... */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    border: none;
+  }
+  thead {
+    display: table-header-group; /* keep headers visible */
+  }
+  tr {
+    display: table-row;
+    background: none;
+    box-shadow: none;
+  }
+  th,
+  td {
+    display: table-cell;
+    padding: 8px 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    position: static;
+    padding-left: unset;
+  }
+
+  /* Make first column sticky on left */
+  th:first-child,
+  td:first-child {
+    position: sticky;
+    left: 0;
+    background: #9438d1;
+    color: white;
+    font-weight: bold;
+    z-index: 10;
+  }
+
+  /* Optional: Different bg for days column */
+  tbody td:first-child {
+    background-color: #e9d7f5;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    min-width: unset;
+    font-size: 0.85rem;
+  }
+
+  th,
+  td {
+    padding: 8px 6px;
+  }
+}

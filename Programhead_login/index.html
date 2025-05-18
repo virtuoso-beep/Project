@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Program Head Roomify Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div style="text-align: left; margin: 20px">
+      <button
+        onclick="window.location.href='http://localhost/Project/choices/'"
+        style="
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          padding: 10px 20px;
+          border: none;
+          background: #9d4edd;
+          color: white;
+          border-radius: 8px;
+          cursor: pointer;
+        "
+      >
+        ← Back
+      </button>
+    </div>
+    <button class="dark-toggle" onclick="toggleTheme()">🌙</button>
+    <div class="bubbles" id="bubbles"></div>
+    <div class="container" id="main-container">
+      <div class="logo-container">
+        <img src="\Project\logo.PNG" alt="Roomify Logo" class="logo" />
+      </div>
+      <div class="form-container">
+        <h1>Login to Roomify</h1>
+        <div class="input-group">
+          <input type="text" id="username" placeholder="Email" />
+        </div>
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Password" />
+        </div>
+        <button class="btn" onclick="handleLogin()">Login</button>
+        <div id="errorMsg" class="error"></div>
+      </div>
+    </div>
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        const container = document.getElementById("main-container");
+
+        body.classList.toggle("dark-mode");
+        container.classList.toggle("dark-mode");
+
+        const isDark = body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+      }
+
+      function applySavedTheme() {
+        const darkModeSetting = localStorage.getItem("darkMode");
+
+        if (darkModeSetting === "enabled") {
+          document.body.classList.add("dark-mode");
+          document.getElementById("main-container").classList.add("dark-mode");
+        }
+      }
+
+      applySavedTheme();
+    </script>
+
+    <script>
+      const validCredentials = [{ username: "mark", password: "baguio" }];
+
+      function handleLogin() {
+        const username = document
+          .getElementById("username")
+          .value.trim()
+          .toLowerCase();
+        const password = document.getElementById("password").value.trim();
+        const errorDiv = document.getElementById("errorMsg");
+
+        if (!username || !password) {
+          errorDiv.textContent = "Please fill in all fields.";
+          return;
+        }
+
+        const isValid = validCredentials.some(
+          (user) => user.username === username && user.password === password
+        );
+
+        if (isValid) {
+          window.location.href =
+            "http://localhost/Project/Proghead-dashboard/dashboard.php";
+        } else {
+          errorDiv.textContent = "Invalid credentials.";
+        }
+      }
+
+      function createBubbles() {
+        const bubbleContainer = document.getElementById("bubbles");
+        for (let i = 0; i < 40; i++) {
+          const bubble = document.createElement("div");
+          bubble.classList.add("bubble");
+          const size = 30 + Math.random() * 40;
+          bubble.style.width = `${size}px`;
+          bubble.style.height = `${size}px`;
+          bubble.style.left = `${Math.random() * 100}%`;
+          bubble.style.animationDuration = `${6 + Math.random() * 6}s`;
+          bubble.style.animationDelay = `${Math.random() * 6}s`;
+          bubbleContainer.appendChild(bubble);
+        }
+      }
+
+      createBubbles();
+
+      // Trigger login when pressing Enter key anywhere on the page
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          handleLogin();
+        }
+      });
+    </script>
+  </body>
+</html>

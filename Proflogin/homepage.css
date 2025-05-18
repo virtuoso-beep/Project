@@ -1,0 +1,376 @@
+/* Base styles for all screen sizes */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  transition: background-color 3s ease; /* Smooth background transition */
+}
+
+body {
+  display: flex; /* Default to flex for larger screens */
+  flex-direction: row; /* Default to row for larger screens */
+}
+
+.sidebar {
+  position: absolute; /* Initially positioned for desktop view */
+  width: 200px;
+  height: 100vh;
+  background: #9438d1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  z-index: 10; /* Ensure it's above the main content */
+  transition: transform 3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+.sidebar button {
+  background: transparent;
+  color: white;
+  border: solid 1px white;
+  margin: 10px 0;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  width: 180px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 3s ease,
+    transform 0.2s ease-in-out; /* Smooth button transitions */
+}
+
+.sidebar button:hover {
+  background: #5d1786;
+  transform: scale(1.05); /* Slight scale on hover */
+}
+
+.main-content {
+  margin-left: 200px; /* Adjusted for desktop sidebar */
+  flex: 1;
+  padding: 30px;
+  background: #e4c7f7;
+  overflow-x: auto;
+  max-height: 100vh;
+  transition: background-color 3s ease, margin-left 0.3s ease; /* Smooth transitions */
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #8e44ad;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content button {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+}
+
+.modal-content button:first-child {
+  color: white;
+}
+
+.modal-content button:last-child {
+  background-color: white;
+  color: #1a1a2e;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #5a2585;
+  transition: color 3s ease; /* Smooth text color transition */
+}
+
+.schedule-table-container {
+  max-width: 100%;
+  max-height: 100vh;
+  overflow: scroll;
+  white-space: nowrap;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(106, 13, 173, 0.1);
+  scrollbar-width: thin;
+  scrollbar-color: #883edf #e4c7f7;
+}
+
+.schedule-table-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.schedule-table-container::-webkit-scrollbar-track {
+  background: linear-gradient(to right, #e4c7f7, #f3e8ff);
+  border-radius: 10px;
+  transition: background-color 3s ease; /* Smooth scrollbar track transition */
+}
+
+.schedule-table-container::-webkit-scrollbar-thumb {
+  background-color: #883edf;
+  border-radius: 10px;
+  border: 2px solid #e4c7f7;
+  transition: background-color 3s ease; /* Smooth scrollbar thumb transition */
+}
+
+.schedule-table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #6a1dbd;
+}
+
+.schedule-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ddd;
+  padding: 15px;
+  transition: background-color 3s ease, color 0.3s ease, border-color 3s ease; /* Smooth cell transitions */
+}
+
+.schedule-table th {
+  background-color: rgb(148, 56, 209);
+  color: white;
+}
+
+.btn-book,
+.booking-form button {
+  background-color: #5d1786;
+  color: white;
+  padding: 8px 18px; /* Slightly adjusted padding */
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px; /* Slightly larger font */
+  transition: background-color 3s ease, color 0.3s ease,
+    transform 0.2s ease-in-out; /* Smooth button transitions */
+}
+
+.btn-book:hover,
+.booking-form button:hover {
+  background-color: #7c2db0;
+  transform: scale(1.03); /* Slight scale on hover */
+}
+
+.booking-form {
+  display: none;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 3s ease; /* Smooth fade in/out */
+}
+
+.booking-form.show {
+  display: block;
+  opacity: 1;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 10px; /* Slightly increased padding */
+  margin: 10px 0; /* Slightly increased margin */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 3s ease; /* Smooth input border transition */
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: #9438d1;
+  outline: none;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 18px; /* Slightly adjusted padding */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 3s ease, transform 0.2s ease-in-out; /* Smooth button transitions */
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+  transform: scale(1.03); /* Slight scale on hover */
+}
+
+.dark-mode {
+  color: #eee;
+}
+
+.dark-mode .main-content {
+  background: linear-gradient(120deg, #1a1a2e, #3d2c8d);
+}
+
+.dark-mode .card {
+  border-color: #aaa;
+}
+
+.dark-mode input,
+.dark-mode select {
+  background-color: #555;
+  color: #eee;
+  border-color: #888;
+}
+
+.dark-mode .schedule-table th {
+  background-color: #5d1786;
+}
+
+.dark-mode .btn-submit {
+  background-color: rgb(86, 59, 102);
+  box-shadow: 0 4px 8px rgb(180, 134, 186);
+}
+
+.dark-toggle {
+  position: auto;
+  bottom: 20px; /* Adjusted for better mobile visibility */
+  left: 20px; /* Adjusted for better mobile visibility */
+  background-color: #9438d1;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 3s ease, transform 0.3s ease; /* Smooth transitions */
+  z-index: 1000;
+}
+
+.dark-toggle:hover {
+  background-color: #7b2bb9;
+  transform: scale(1.1);
+}
+
+.dark-mode .dark-toggle {
+  background: transparent;
+  color: #eee;
+  border: solid 1px #eee;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.dark-mode .dark-toggle:hover {
+  background: rgb(123, 65, 161);
+  border-color: #7c2db0;
+}
+
+.dark-mode .sidebar {
+  background: rgb(64, 26, 117);
+}
+
+.dark-mode label {
+  color: #777;
+}
+
+/* Media query for tablet and mobile devices (max-width: 992px) */
+@media (max-width: 992px) {
+  * {
+    font-size: 12px;
+  }
+  body {
+    flex-direction: column; /* Stack sidebar and main content vertically */
+  }
+
+  .sidebar {
+    position: sticky; /* Make it stick to the top */
+    top: 0; /* Stick to the top edge */
+    width: 100%;
+    height: auto;
+    flex-direction: row; /* Arrange buttons horizontally */
+    justify-content: space-around; /* Distribute buttons evenly */
+    padding: 10px 5px; /* Adjust horizontal padding */
+    margin-bottom: 20px; /* Add some space below the sidebar */
+    background-color: rgba(
+      148,
+      56,
+      209,
+      0.95
+    ); /* Slightly transparent background for stickiness */
+    z-index: 20; /* Ensure it stays above the main content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+  }
+
+  .sidebar button {
+    width: auto; /* Adjust button width */
+    margin: 5px 3px; /* Adjust horizontal margin */
+    padding: 6px 10px; /* Slightly reduced padding */
+    font-size: 14px;
+  }
+
+  .main-content {
+    margin-left: 0; /* Reset left margin */
+    padding-top: 70px; /* Add padding to avoid overlap with sticky sidebar */
+  }
+
+  .dark-toggle {
+    bottom: 10px;
+    left: 10px;
+  }
+}
+
+/* Media query for smaller mobile devices (max-width: 600px) */
+@media (max-width: 600px) {
+  body {
+    overflow-x: auto;
+  }
+  .sidebar {
+    height: auto; /* Prevent capping height unexpectedly */
+    overflow-x: auto;
+    flex-direction: column; /* STACK buttons vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align to top */
+    /* Prevent wrapping */
+  }
+
+  .sidebar button {
+    /* Vertical margin */
+    width: 30%; /* Make button take up most of the width */
+    font-size: 12px;
+  }
+
+  .main-content {
+    padding: 5px;
+    padding-top: 190px;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+}

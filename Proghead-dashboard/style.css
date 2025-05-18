@@ -1,0 +1,444 @@
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+}
+
+/* ==========================================================================
+   Sidebar Styles
+   ========================================================================== */
+.sidebar {
+  width: 200px;
+  background-color: #9438d1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.sidebar img {
+  width: 90px;
+  margin-bottom: 30px;
+  border-radius: 50px;
+}
+
+.sidebar button {
+  background-color: transparent;
+  color: white;
+  border: solid 1px white;
+  margin: 10px 0;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  width: 150px;
+  transition: background-color 3s ease; /* Smooth hover transition */
+}
+
+.sidebar button:hover {
+  background-color: #5d1786;
+}
+
+/* ==========================================================================
+   Main Content Styles
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #e4c7f7;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   Card Styles
+   ========================================================================== */
+.card {
+  background-color: transparent;
+  border-radius: 50px;
+  border: solid 1px black;
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  color: #9438d1;
+  border-bottom: 2px solid #9438d1;
+  padding-bottom: 10px;
+}
+
+/* ==========================================================================
+   Form Group Styles
+   ========================================================================== */
+.form-group {
+  margin: 20px 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid black;
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   Checkbox Group Styles
+   ========================================================================== */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #f0e6fa;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 0.85em;
+}
+
+/* ==========================================================================
+   Button Styles (Submit)
+   ========================================================================== */
+.btn-submit {
+  background-color: #9438d1;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  width: 100%;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 3s ease; /* Smooth hover transition */
+}
+
+.btn-submit:hover {
+  background-color: #7c2db0;
+}
+
+/* ==========================================================================
+   Schedule Table Styles
+   ========================================================================== */
+.schedule-table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  text-align: center;
+  min-width: 900px;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.schedule-table th {
+  background-color: #9438d1;
+  color: white;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #8e44ad;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+  width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-buttons button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-buttons button:first-child {
+  background-color: #8e44ad; /* Purple */
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #e0e0e0;
+  color: #1a1a2e;
+}
+
+/* ==========================================================================
+   Delete Button Styles
+   ========================================================================== */
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.75em;
+  margin-top: 5px;
+  transition: background-color 3s ease; /* Smooth hover transition */
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
+.schedule-table th .delete-btn {
+  font-size: 0.7em;
+  padding: 2px 5px;
+  margin-top: 5px;
+}
+
+/* ==========================================================================
+   Dark Mode Styles
+   ========================================================================== */
+.dark-toggle {
+  position: auto;
+  bottom: 30px;
+  left: 29px;
+  background-color: #9438d1;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 3s ease, transform 3s ease; /* Smooth transitions */
+  z-index: 1000;
+}
+
+.dark-toggle:hover {
+  background-color: #7b2bb9;
+  transform: scale(1.1);
+}
+
+.dark-mode {
+  color: #eee;
+}
+
+.dark-mode .main-content {
+  background: linear-gradient(120deg, #1a1a2e, #3d2c8d);
+}
+
+.dark-mode .card {
+  border-color: #aaa;
+}
+
+.dark-mode input,
+.dark-mode select {
+  background-color: #555;
+  color: #eee;
+  border-color: #888;
+}
+
+.dark-mode .schedule-table th {
+  background-color: #5d1786;
+}
+
+.dark-mode .btn-submit {
+  background-color: rgb(86, 59, 102);
+  box-shadow: 0 4px 8px rgb(180, 134, 186);
+}
+
+.dark-mode .dark-toggle {
+  background-color: transparent;
+  color: #eee;
+  border: solid 1px #eee;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.dark-mode .dark-toggle:hover {
+  background-color: rgb(123, 65, 161);
+  border-color: #7c2db0;
+}
+
+.dark-mode .sidebar {
+  background-color: rgb(64, 26, 117);
+}
+
+.dark-mode label {
+  color: #777;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 160px;
+    padding: 15px;
+  }
+
+  .sidebar button {
+    width: 130px;
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 30px;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 8px;
+  }
+
+  .btn-submit {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px; /* increased */
+    gap: 15px; /* increased */
+    background-color: #9438d1;
+  }
+
+  .sidebar img {
+    width: 60px; /* increased */
+  }
+
+  .sidebar button {
+    font-size: 14px; /* increased */
+    padding: 8px 12px;
+  }
+
+  .main-content {
+    padding: 25px; /* increased */
+  }
+
+  .card {
+    padding: 30px; /* increased */
+    border-radius: 30px;
+  }
+
+  .checkbox-group {
+    flex-direction: column;
+    gap: 8px; /* slightly increased */
+  }
+
+  .schedule-table {
+    font-size: 0.8em; /* slightly larger text */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 20px; /* increased */
+  }
+
+  .sidebar img {
+    width: 55px; /* increased */
+  }
+
+  .sidebar button {
+    font-size: 13px; /* increased */
+    width: 95%; /* almost full-width */
+    padding: 10px 16px; /* more touch-friendly */
+  }
+
+  .main-content {
+    padding: 20px; /* increased */
+  }
+
+  .card {
+    padding: 25px; /* increased */
+    border-radius: 25px;
+    width: 100%; /* full width instead of fixed 1024px */
+  }
+
+  .card h2 {
+    font-size: 1.2em; /* larger title */
+  }
+
+  .form-group label {
+    font-size: 0.9em; /* clearer labels */
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  .btn-submit {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  .schedule-table {
+    font-size: 0.8em;
+    min-width: 100%;
+  }
+
+  .delete-btn {
+    font-size: 0.75em;
+    padding: 4px 8px;
+  }
+}
