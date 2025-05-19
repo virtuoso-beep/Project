@@ -1,4 +1,4 @@
-/* Base styles for all screen sizes */
+
 * {
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
@@ -9,16 +9,16 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  transition: background-color 3s ease; /* Smooth background transition */
+  transition: background-color 3s ease; 
 }
 
 body {
-  display: flex; /* Default to flex for larger screens */
-  flex-direction: row; /* Default to row for larger screens */
+  display: flex; 
+  flex-direction: row; 
 }
 
 .sidebar {
-  position: absolute; /* Initially positioned for desktop view */
+  position: absolute; 
   width: 200px;
   height: 100vh;
   background: #9438d1;
@@ -26,8 +26,8 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  z-index: 10; /* Ensure it's above the main content */
-  transition: transform 3s ease, background-color 0.3s ease; /* Smooth transitions */
+  z-index: 10; 
+  transition: transform 3s ease, background-color 0.3s ease; 
 }
 
 .sidebar button {
@@ -42,22 +42,22 @@ body {
   font-size: 15px;
   width: 180px;
   transition: background-color 0.3s ease, color 0.3s ease, border-color 3s ease,
-    transform 0.2s ease-in-out; /* Smooth button transitions */
+    transform 0.2s ease-in-out;
 }
 
 .sidebar button:hover {
   background: #5d1786;
-  transform: scale(1.05); /* Slight scale on hover */
+  transform: scale(1.05); 
 }
 
 .main-content {
-  margin-left: 200px; /* Adjusted for desktop sidebar */
+  margin-left: 200px; 
   flex: 1;
   padding: 30px;
   background: #e4c7f7;
   overflow-x: auto;
   max-height: 100vh;
-  transition: background-color 3s ease, margin-left 0.3s ease; /* Smooth transitions */
+  transition: background-color 3s ease, margin-left 0.3s ease; 
 }
 .modal {
   display: none;
@@ -101,7 +101,7 @@ h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #5a2585;
-  transition: color 3s ease; /* Smooth text color transition */
+  transition: color 3s ease; 
 }
 
 .schedule-table-container {
@@ -123,14 +123,14 @@ h2 {
 .schedule-table-container::-webkit-scrollbar-track {
   background: linear-gradient(to right, #e4c7f7, #f3e8ff);
   border-radius: 10px;
-  transition: background-color 3s ease; /* Smooth scrollbar track transition */
+  transition: background-color 3s ease; 
 }
 
 .schedule-table-container::-webkit-scrollbar-thumb {
   background-color: #883edf;
   border-radius: 10px;
   border: 2px solid #e4c7f7;
-  transition: background-color 3s ease; /* Smooth scrollbar thumb transition */
+  transition: background-color 3s ease; 
 }
 
 .schedule-table-container::-webkit-scrollbar-thumb:hover {
@@ -148,7 +148,7 @@ h2 {
 .schedule-table td {
   border: 1px solid #ddd;
   padding: 15px;
-  transition: background-color 3s ease, color 0.3s ease, border-color 3s ease; /* Smooth cell transitions */
+  transition: background-color 3s ease, color 0.3s ease, border-color 3s ease; 
 }
 
 .schedule-table th {
@@ -160,19 +160,19 @@ h2 {
 .booking-form button {
   background-color: #5d1786;
   color: white;
-  padding: 8px 18px; /* Slightly adjusted padding */
+  padding: 8px 18px; 
   border-radius: 10px;
   cursor: pointer;
   border: none;
-  font-size: 16px; /* Slightly larger font */
+  font-size: 16px; 
   transition: background-color 3s ease, color 0.3s ease,
-    transform 0.2s ease-in-out; /* Smooth button transitions */
+    transform 0.2s ease-in-out; 
 }
 
 .btn-book:hover,
 .booking-form button:hover {
   background-color: #7c2db0;
-  transform: scale(1.03); /* Slight scale on hover */
+  transform: scale(1.03); 
 }
 
 .booking-form {
@@ -186,7 +186,7 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: opacity 3s ease; /* Smooth fade in/out */
+  transition: opacity 3s ease; 
 }
 
 .booking-form.show {
@@ -197,11 +197,11 @@ h2 {
 .booking-form input,
 .booking-form select {
   width: 100%;
-  padding: 10px; /* Slightly increased padding */
-  margin: 10px 0; /* Slightly increased margin */
+  padding: 10px; 
+  margin: 10px 0; 
   border-radius: 4px;
   border: 1px solid #ccc;
-  transition: border-color 3s ease; /* Smooth input border transition */
+  transition: border-color 3s ease; 
 }
 
 .booking-form input:focus,
@@ -214,15 +214,15 @@ h2 {
   background-color: red;
   color: white;
   border: none;
-  padding: 8px 18px; /* Slightly adjusted padding */
+  padding: 8px 18px; 
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 3s ease, transform 0.2s ease-in-out; /* Smooth button transitions */
+  transition: background-color 3s ease, transform 0.2s ease-in-out; 
 }
 
 .delete-btn:hover {
   background-color: darkred;
-  transform: scale(1.03); /* Slight scale on hover */
+  transform: scale(1.03);
 }
 
 .dark-mode {
@@ -255,8 +255,8 @@ h2 {
 
 .dark-toggle {
   position: auto;
-  bottom: 20px; /* Adjusted for better mobile visibility */
-  left: 20px; /* Adjusted for better mobile visibility */
+  bottom: 20px; 
+  left: 20px; 
   background-color: #9438d1;
   border: none;
   border-radius: 50%;
@@ -266,7 +266,7 @@ h2 {
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 3s ease, transform 0.3s ease; /* Smooth transitions */
+  transition: background-color 3s ease, transform 0.3s ease; 
   z-index: 1000;
 }
 
@@ -299,44 +299,44 @@ h2 {
   color: #777;
 }
 
-/* Media query for tablet and mobile devices (max-width: 992px) */
+
 @media (max-width: 992px) {
   * {
     font-size: 12px;
   }
   body {
-    flex-direction: column; /* Stack sidebar and main content vertically */
+    flex-direction: column; 
   }
 
   .sidebar {
-    position: sticky; /* Make it stick to the top */
-    top: 0; /* Stick to the top edge */
+    position: sticky; 
+    top: 0; 
     width: 100%;
     height: auto;
-    flex-direction: row; /* Arrange buttons horizontally */
-    justify-content: space-around; /* Distribute buttons evenly */
-    padding: 10px 5px; /* Adjust horizontal padding */
-    margin-bottom: 20px; /* Add some space below the sidebar */
+    flex-direction: row; 
+    justify-content: space-around; 
+    padding: 10px 5px; 
+    margin-bottom: 20px; 
     background-color: rgba(
       148,
       56,
       209,
       0.95
-    ); /* Slightly transparent background for stickiness */
-    z-index: 20; /* Ensure it stays above the main content */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+    ); 
+    z-index: 20; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
   }
 
   .sidebar button {
-    width: auto; /* Adjust button width */
-    margin: 5px 3px; /* Adjust horizontal margin */
-    padding: 6px 10px; /* Slightly reduced padding */
+    width: auto;
+    margin: 5px 3px; 
+    padding: 6px 10px;
     font-size: 14px;
   }
 
   .main-content {
-    margin-left: 0; /* Reset left margin */
-    padding-top: 70px; /* Add padding to avoid overlap with sticky sidebar */
+    margin-left: 0; 
+    padding-top: 70px; 
   }
 
   .dark-toggle {
@@ -345,23 +345,22 @@ h2 {
   }
 }
 
-/* Media query for smaller mobile devices (max-width: 600px) */
+
 @media (max-width: 600px) {
   body {
     overflow-x: auto;
   }
   .sidebar {
-    height: auto; /* Prevent capping height unexpectedly */
+    height: auto; 
     overflow-x: auto;
-    flex-direction: column; /* STACK buttons vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: flex-start; /* Align to top */
-    /* Prevent wrapping */
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start;
+    
   }
 
   .sidebar button {
-    /* Vertical margin */
-    width: 30%; /* Make button take up most of the width */
+    width: 30%;
     font-size: 12px;
   }
 
