@@ -9,27 +9,23 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Delete schedule by ID
 if (isset($_GET['delete_id'])) {
     $id = intval($_GET['delete_id']);
     $conn->query("DELETE FROM schedules WHERE id = $id");
-    header("Location: " . $_SERVER['PHP_SELF']); // Redirect to the same page
-    exit(); // Stop script execution after redirection
+    header("Location: " . $_SERVER['PHP_SELF']); 
+    exit(); 
 }
 
-// Delete all schedules by room
 if (isset($_GET['delete_room'])) {
     $roomToDelete = $conn->real_escape_string($_GET['delete_room']);
     $conn->query("DELETE FROM schedules WHERE room = '$roomToDelete'");
-    header("Location: " . $_SERVER['PHP_SELF']); // Redirect to the same page
-    exit(); // Stop script execution after redirection
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit(); 
 }
 
-// Add schedule
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['room'])) {
     $room = trim($_POST['room']);
 
-    // Check if the room exists in the "rooms" table or add a new room if needed
     if ($room) {
         $roomCheck = $conn->prepare("SELECT COUNT(*) FROM rooms WHERE name = ?");
         $roomCheck->bind_param("s", $room);
@@ -40,13 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['room'])) {
 
         if ($roomExists == 0) {
             // Add new room if it doesn't exist
-            $insertRoom = $conn->prepare("INSERT INTO rooms (name) VALUES (?)"); //Use Prepare Statement
+            $insertRoom = $conn->prepare("INSERT INTO rooms (name) VALUES (?)"); 
             $insertRoom->bind_param("s", $room);
             $insertRoom->execute();
             $insertRoom->close();
         }
-
-        // Check if the room is available for the chosen time slot and day(s)
         $course = $_POST['course'];
         $professor = $_POST['professor'];
         $start = $_POST['start'];
@@ -54,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['room'])) {
         $days = isset($_POST['day']) ? $_POST['day'] : [];
 
         foreach ($days as $day) {
-            // Check for existing schedules for the same room, day, and time slot
             $conflictCheck = $conn->prepare("SELECT COUNT(*) FROM schedules WHERE room = ? AND day = ? AND ((? BETWEEN start_time AND end_time) OR (? BETWEEN start_time AND end_time))");
             $conflictCheck->bind_param("ssss", $room, $day, $start, $end);
             $conflictCheck->execute();
@@ -63,12 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['room'])) {
             $conflictCheck->close();
 
             if ($conflictExists > 0) {
-                // Conflict detected, show alert and exit
                 echo "<script>alert('The room \"$room\" is already booked at this time for $day. Please select another time or day.'); window.history.back();</script>";
                 exit();
             }
 
-            // No conflict, insert the schedule
             $stmt = $conn->prepare("INSERT INTO schedules (room, course, professor, start_time, end_time, day) VALUES (?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("ssssss", $room, $course, $professor, $start, $end, $day);
             $stmt->execute();
@@ -84,17 +75,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['room'])) {
     }
 }
 
-// Fetch all unique rooms from the 'schedules' table
 $rooms = [];
 $roomResult = $conn->query("SELECT DISTINCT room FROM schedules");
-if ($roomResult) { // Check if the query was successful
+if ($roomResult) { 
     while ($row = $roomResult->fetch_assoc()) {
         $rooms[] = $row['room'];
     }
-    $roomResult->free_result(); // free the result set
+    $roomResult->free_result(); 
 }
 
-// Fetch all schedules
 $schedules = [];
 $result = $conn->query("SELECT * FROM schedules ORDER BY start_time");
 if ($result) {
