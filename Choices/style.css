@@ -260,6 +260,7 @@ body.dark-mode h1 {
     position: absolute;
   }
 }
+
 @media (min-width: 1024px) {
   h1 {
     font-size: 2.8rem;
