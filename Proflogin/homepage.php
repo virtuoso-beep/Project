@@ -133,7 +133,7 @@ include("connect.php");
         </div>
         <button onclick="showSchedule()">Room</button>
         <button onclick="showBookingForm()">Avail Room</button>
-        <button onclick="confirmSignOut()" style="margin-top: 240px;" class="signout-btn">Sign Out</button>
+        <button onclick="confirmSignOut()" style="margin-top: auto;" class="signout-btn">Sign Out</button>
         <p class="dark-toggle" onclick="toggleTheme()">🌙</p>
     </div>
 
