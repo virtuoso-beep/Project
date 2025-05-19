@@ -65,13 +65,13 @@ unset($_SESSION['error']);
       display: block;
     }
     .schedule-table {
-  min-width: 1200px;
-  width: max-content;
-  border-collapse: collapse;
-  font-size: 0.9em;
-  text-align: center;
-  background-color: white; /* Changed the background color to white */
-}
+      min-width: 1200px;
+      width: max-content;
+      border-collapse: collapse;
+      font-size: 0.9em;
+      text-align: center;
+      background-color: white; 
+    }
     .schedule-table th, .schedule-table td {
       border: 1px solid #ddd;
       padding: 8px;
@@ -148,8 +148,8 @@ unset($_SESSION['error']);
    
 .schedule-table-container {
     width: 100%;
-    height: 400px; /* Adjust the height as per your requirement */
-    overflow: auto; /* Enables both horizontal and vertical scrolling */
+    height: 400px; 
+    overflow: auto;  
      flex: 1;
       padding: 30px;
       background: #e4c7f7;
@@ -157,7 +157,7 @@ unset($_SESSION['error']);
 }
 
 .schedule-table {
-    min-width: 1200px; /* Adjust this based on your content width */
+    min-width: 1200px;  
     width: max-content;
     border-collapse: collapse;
     font-size: 0.9em;
@@ -197,7 +197,7 @@ unset($_SESSION['error']);
     transform: scale(1.1);
 }
 
-  /* Dark Mode Styling */
+ 
   .dark-mode {
     background-color: #2c2c2c;
     color: #eee;
@@ -222,7 +222,7 @@ unset($_SESSION['error']);
     background-color: #5d1786;
   }
 
-  /* Button hover effect */
+ 
   .btn-submit:hover {
     background-color: #7c2db0;
   }
@@ -254,8 +254,7 @@ unset($_SESSION['error']);
     box-shadow: 0 0 0 2px rgba(100, 100, 255, 0.3);
 }
 
-/* Responsive Design */
-/* Mobile */
+ 
 @media (max-width: 600px) {
   .container {
     flex-direction: column;
