@@ -64,7 +64,6 @@ footer {
   color: #888;
 }
 
-/* Dark mode */
 .dark-toggle {
   position: fixed;
   bottom: 30px;
@@ -113,14 +112,13 @@ footer {
   background-color: #47624b;
 }
 
-/* Responsive design */ /* ... existing styles (unchanged above 768px) ... */
 @media (max-width: 768px) {
   table {
     width: 100%;
     border: none;
   }
   thead {
-    display: table-header-group; /* keep headers visible */
+    display: table-header-group;
   }
   tr {
     display: table-row;
@@ -137,7 +135,6 @@ footer {
     padding-left: unset;
   }
 
-  /* Make first column sticky on left */
   th:first-child,
   td:first-child {
     position: sticky;
@@ -148,7 +145,6 @@ footer {
     z-index: 10;
   }
 
-  /* Optional: Different bg for days column */
   tbody td:first-child {
     background-color: #e9d7f5;
   }
